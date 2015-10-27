@@ -177,7 +177,8 @@ angular.module('pws', [
         controller: 'VideoSel'
       })
   })
-  .controller('HomepageCtrl', function(navbarManager) {
+  .controller('HomepageCtrl', function($scope, navbarManager, userManager) {
+    $scope.me = userManager;
     navbarManager.setActiveTab(0);
   })
   .filter('repext', function() {

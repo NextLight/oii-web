@@ -42,8 +42,12 @@
             <li><a ui-sref="tests"><i class="fa fa-pencil fa-fw"></i> Scolastiche</a></li>
           </ul>
         </li>
-        <li ng-show="me.isLogged()" ng-class="{active: isActiveTab(2)}">
-          <a href="http://cms.di.unipi.it:8080/session/sso"><i class="fa fa-comments fa-lg"></i> Forum</a>
+        <li>
+          <a ng-if="!me.isLogged()" href="http://cms.di.unipi.it:8080"><i class="fa fa-comments fa-lg"></i> {{'Forum' | l10n}}</a>
+          <a ng-if="me.isLogged()" href="http://cms.di.unipi.it:8080/session/sso"><i class="fa fa-comments fa-lg"></i> {{'Forum' | l10n}}</a>
+        </li>
+        <li ng-class="{active: isActiveTab(5)}" ng-if="!me.isLogged()">
+          <a ui-sref="signup"><i class="fa fa-pencil fa-lg"></i> {{'Sign up' | l10n}}</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
